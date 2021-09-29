@@ -339,7 +339,11 @@ class Service extends BaseService
         return $this->cleanEmptyValues($properties);
     }
 
-    private function getFieldType(Field $field): string
+    /**
+     * @param Field $field
+     * @return string
+     */
+    private function getFieldType($field): string
     {
         return method_exists($field, 'getFieldType') && ! empty($field->getFieldType())
             ? $field->getFieldType()
