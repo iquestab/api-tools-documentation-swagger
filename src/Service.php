@@ -264,7 +264,7 @@ class Service extends BaseService
         $required = $properties = [];
 
         foreach ($this->getFieldsForDefinitions() as $field) {
-            if (! $field instanceof Field) {
+            if (! $field instanceof Field && (!class_exists('\IQApi\ApiTools\Documentation\Field') || !$field instanceof '\IQApi\ApiTools\Documentation\Field')) {
                 continue;
             }
 
