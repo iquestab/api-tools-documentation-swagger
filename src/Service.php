@@ -320,7 +320,11 @@ class Service extends BaseService
         return $fields;
     }
 
-    private function getFieldProperties(Field $field): array
+    /**
+     * @param Field $field
+     * @return array
+     */
+    private function getFieldProperties($field): array
     {
         $type               = $this->getFieldType($field);
         $properties         = [];
