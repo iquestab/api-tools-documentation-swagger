@@ -332,6 +332,9 @@ class Service extends BaseService
         if (method_exists($field, 'getFieldProperties')) {
             $properties['properties'] = $field->getFieldProperties();
         }
+        if (method_exists($field, 'getFieldRequiredProperties')) {
+            $properties['required'] = $field->getFieldRequiredProperties();
+        }
         if ($type === self::ARRAY_TYPE) {
             $properties['items'] = ['type' => self::DEFAULT_TYPE];
         }
