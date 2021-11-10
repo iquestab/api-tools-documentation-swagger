@@ -13,7 +13,7 @@
     "require": {
         "php": "^7.3 || ~8.0.0",
         "laminas-api-tools/api-tools-api-problem": "^1.2.1",
-        "laminas-api-tools/api-tools-content-negotiation": "dev-http-request",
+        "laminas-api-tools/api-tools-content-negotiation": "1.6.x-dev",
         "laminas-api-tools/api-tools-documentation": "1.5.x-dev",
         "laminas/laminas-eventmanager": "^3.2",
         "laminas/laminas-mvc": "^2.7.15 || ^3.0.4",
@@ -69,10 +69,6 @@
         "rss": "https://github.com/laminas-api-tools/api-tools-documentation-swagger/releases.atom"
     },
     "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/bfoosness/api-tools-content-negotiation.git"
-        },
         {
             "type": "git",
             "url": "https://github.com/iquestab/api-tools-documentation.git"
