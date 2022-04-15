@@ -22,6 +22,7 @@ class ViewModel extends JsonModel
                 return $this->variables['documentation'];
             case 'api':
                 $model = new Api($this->variables['documentation']);
+                $model->setSwaggerExtraConfig($this->variables['swagger_extra_config']);
                 return $model->toArray();
         }
     }
