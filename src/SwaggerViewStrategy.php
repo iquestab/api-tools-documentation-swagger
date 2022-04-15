@@ -20,9 +20,14 @@ class SwaggerViewStrategy implements ListenerAggregateInterface
     /** @var JsonRenderer */
     protected $renderer;
 
-    public function __construct(JsonRenderer $renderer)
+    /** @var array $swaggerExtraConfig */
+    private array $swaggerExtraConfig = [];
+
+
+    public function __construct(JsonRenderer $renderer, array $swaggerExtraConfig = [])
     {
         $this->renderer = $renderer;
+        $this->swaggerExtraConfig = $swaggerExtraConfig;
     }
 
     /**
@@ -43,7 +48,7 @@ class SwaggerViewStrategy implements ListenerAggregateInterface
         if (! $model instanceof ViewModel) {
             return;
         }
-
+        $model->setVariable('swagger_extra_config', $this->swaggerExtraConfig);
         $this->model = $model;
         return $this->renderer;
     }
