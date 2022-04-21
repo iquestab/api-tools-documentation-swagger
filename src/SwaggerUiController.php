@@ -44,8 +44,8 @@ class SwaggerUiController extends AbstractActionController
 
         $viewModel = new ViewModel([
             'api' => $api,
-            'clientId' => $this->clientId,
-            'appName' => $this->appName
+            'client_id' => $this->getClientId(),
+            'app_name' => $this->getAppName()
         ]);
         $viewModel->setTemplate('api-tools-documentation-swagger/show');
         $viewModel->setTerminal(true);
