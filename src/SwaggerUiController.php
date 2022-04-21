@@ -8,6 +8,9 @@ use Laminas\View\Model\ViewModel;
 
 class SwaggerUiController extends AbstractActionController
 {
+    private $clientId;
+    private $appName;
+
     /** @var ApiFactory */
     protected $apiFactory;
 
@@ -39,9 +42,60 @@ class SwaggerUiController extends AbstractActionController
     {
         $api = $this->params()->fromRoute('api');
 
-        $viewModel = new ViewModel(['api' => $api]);
+        $viewModel = new ViewModel([
+            'api' => $api,
+            'clientId' => $this->clientId,
+            'appName' => $this->appName
+        ]);
         $viewModel->setTemplate('api-tools-documentation-swagger/show');
         $viewModel->setTerminal(true);
         return $viewModel;
     }
+
+    /**
+     * Redirect for Oauth2 solution
+     *
+     * @return ViewModel
+     */
+    public function showO2cAction()
+    {
+        $viewModel = new ViewModel();
+        $viewModel->setTemplate('api-tools-documentation-swagger/o2c');
+        $viewModel->setTerminal(true);
+        return $viewModel;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClientId()
+    {
+        return $this->clientId;
+    }
+
+    /**
+     * @param mixed $clientId
+     */
+    public function setClientId($clientId): void
+    {
+        $this->clientId = $clientId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAppName()
+    {
+        return $this->appName;
+    }
+
+    /**
+     * @param mixed $appName
+     */
+    public function setAppName($appName): void
+    {
+        $this->appName = $appName;
+    }
+
+
 }

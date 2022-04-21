@@ -63,10 +63,8 @@
 				onComplete: function (swaggerApi, swaggerUi) {
 					if (typeof initOAuth == "function") {
 						initOAuth({
-							clientId: "your-client-id",
-							clientSecret: "your-client-secret-if-required",
-							realm: "your-realms",
-							appName: "your-app-name",
+							clientId: "<?php echo $this->client_id ?? ''; ?>",
+							appName: "<?php echo $this->app_name ?? ''; ?>",
 							scopeSeparator: " ",
 							additionalQueryStringParams: {}
 						});

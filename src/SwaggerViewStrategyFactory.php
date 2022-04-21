@@ -11,11 +11,8 @@ class SwaggerViewStrategyFactory
      */
     public function __invoke(ContainerInterface $container)
     {
-        $swaggerExtraConfig = [];
         $config = $container->get('Config');
-        if (isset($config['swagger_extra'])) {
-            $swaggerExtraConfig = $config['swagger_extra'];
-        }
+        $swaggerExtraConfig = $config['swagger']['extra'] ?? [];
         return new SwaggerViewStrategy($container->get('ViewJsonRenderer'), $swaggerExtraConfig);
     }
 }
