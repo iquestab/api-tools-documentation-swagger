@@ -30,6 +30,16 @@ return [
                                 ],
                                 'may_terminate' => true,
                             ],
+                            'o2c' => [
+                                'type'          => 'literal',
+                                'options'       => [
+                                    'route'    => '/o2c.html',
+                                    'defaults' => [
+                                        'action' => 'showO2c',
+                                    ],
+                                ],
+                                'may_terminate' => true,
+                            ],
                         ],
                     ],
                 ],
